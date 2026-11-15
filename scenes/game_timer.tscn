@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://jam14w4bbdcs"]
+
+[ext_resource type="Script" uid="uid://cbqvok2gvk1bc" path="res://scripts/game_timer.gd" id="1_ivd57"]
+[ext_resource type="FontFile" uid="uid://bafcs17s3qa4x" path="res://assets/fonts/Redaction50-Regular.ttf" id="2_iww2t"]
+
+[node name="GameTimer" type="Control" unique_id=1610206423]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ivd57")
+
+[node name="Label" type="Label" parent="." unique_id=1031753238]
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("2_iww2t")
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+
+[node name="Timer" type="Timer" parent="." unique_id=775259934 groups=["game_timer"]]
+wait_time = 90.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

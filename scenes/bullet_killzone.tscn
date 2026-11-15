@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2p6sbjcqmvsb"]
+
+[ext_resource type="Script" uid="uid://cl0totj45x2va" path="res://scripts/bullet_killzone.gd" id="1_o0m4e"]
+
+[node name="BulletKillzone" type="Area2D" unique_id=1893320461]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_o0m4e")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

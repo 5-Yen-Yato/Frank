@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://blrru1rxmh1c5"]
+
+[ext_resource type="FontFile" uid="uid://bafcs17s3qa4x" path="res://assets/fonts/Redaction50-Regular.ttf" id="1_7ns25"]
+[ext_resource type="PackedScene" uid="uid://crp5afbp8te1n" path="res://scenes/start_button.tscn" id="2_gwety"]
+[ext_resource type="Script" uid="uid://e0bft4deukl6" path="res://scripts/start_button.gd" id="3_wfw3d"]
+[ext_resource type="Script" uid="uid://bkxbyd4vtkljs" path="res://scripts/to_title.gd" id="4_7ns25"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18rb4"]
+bg_color = Color(0.2, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcm7v"]
+bg_color = Color(0.33368665, 0.31774423, 0.29931408, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.2, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8kdg"]
+bg_color = Color(0.44060168, 0.10143068, 0.116119035, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.19836286, 0.38350913, 0.10320554, 1)
+
+[sub_resource type="Theme" id="Theme_wjy3r"]
+Button/styles/hover = SubResource("StyleBoxFlat_18rb4")
+Button/styles/normal = SubResource("StyleBoxFlat_gcm7v")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o8kdg")
+
+[node name="DeathScreen" type="Control" unique_id=351036994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=509011743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wjy3r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=696106689]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=883258816]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_7ns25")
+theme_override_font_sizes/normal_font_size = 100
+text = "You Died"
+fit_content = true
+autowrap_mode = 0
+
+[node name="StartButton" parent="PanelContainer/VBoxContainer" unique_id=166278050 instance=ExtResource("2_gwety")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_7ns25")
+theme_override_font_sizes/font_size = 28
+text = "Respawn"
+script = ExtResource("3_wfw3d")
+
+[node name="TitleButton" parent="PanelContainer/VBoxContainer" unique_id=1265256853 instance=ExtResource("2_gwety")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_7ns25")
+theme_override_font_sizes/font_size = 28
+text = "Back to Title Screen"
+script = ExtResource("4_7ns25")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/StartButton" to="PanelContainer/VBoxContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TitleButton" to="PanelContainer/VBoxContainer/TitleButton" method="_on_pressed"]

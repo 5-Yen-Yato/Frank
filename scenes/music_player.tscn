@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2oocvo75esll"]
+
+[ext_resource type="AudioStream" uid="uid://7cwyhuak0iqd" path="res://assets/Sounds/SyncLab Music - Music Sport.mp3" id="1_jxdhu"]
+
+[node name="Music_Player" type="Node" unique_id=495397608]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=985757623]
+stream = ExtResource("1_jxdhu")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

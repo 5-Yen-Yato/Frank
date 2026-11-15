@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://deua64n1ras6a"]
+
+[ext_resource type="Texture2D" uid="uid://cuey6rwfb35gg" path="res://assets/Images/lazer.png" id="1_xmihv"]
+
+[node name="Laser" type="Area2D" unique_id=84472524]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=344359676]
+position = Vector2(9.499998, 78.5)
+scale = Vector2(1.5937499, 5.9062505)
+texture = ExtResource("1_xmihv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1971419146]

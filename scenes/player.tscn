@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mjwxi16aud2v"]
+
+[ext_resource type="Texture2D" uid="uid://b5x031d0n8jmf" path="res://assets/Images/Frank (1).png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ek7r03p767lx" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="AudioStream" uid="uid://ceilv385kwctc" path="res://assets/Sounds/804615__qubodup__man-being-hurt.wav" id="3_qhqgy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wjy3r"]
+height = 32.0
+
+[node name="Player" type="CharacterBody2D" unique_id=541109656]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035060460]
+z_index = 1
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1528271426]
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_wjy3r")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1649327468]
+stream = ExtResource("3_qhqgy")
+bus = &"Sound Effects"

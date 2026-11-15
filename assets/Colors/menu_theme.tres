@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://p8isdm11x6lu"]
+
+[ext_resource type="StyleBox" uid="uid://dfnv4cxjl6yyd" path="res://assets/Colors/panel_style.tres" id="1_18rb4"]
+[ext_resource type="FontFile" uid="uid://bafcs17s3qa4x" path="res://assets/fonts/Redaction50-Regular.ttf" id="2_6a7tg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6a7tg"]
+bg_color = Color(0.18431373, 0.30588236, 0.18431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18rb4"]
+
+[resource]
+default_font = ExtResource("2_6a7tg")
+Button/font_sizes/font_size = 38
+Button/styles/hover = SubResource("StyleBoxFlat_6a7tg")
+Button/styles/normal = ExtResource("1_18rb4")
+Button/styles/pressed = SubResource("StyleBoxFlat_18rb4")
+PanelContainer/styles/panel = ExtResource("1_18rb4")
+RichTextLabel/colors/default_color = Color(0.9577182, 0.9577182, 0.9577181, 1)
+RichTextLabelTitle/base_type = &"RichTextLabel"
+RichTextLabelTitle/font_sizes/normal_font_size = 128

@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://bo3ts74xsgd83"]
+
+[ext_resource type="Theme" uid="uid://p8isdm11x6lu" path="res://assets/Colors/menu_theme.tres" id="1_sa3yf"]
+[ext_resource type="PackedScene" uid="uid://crp5afbp8te1n" path="res://scenes/start_button.tscn" id="2_s4lrb"]
+[ext_resource type="Script" uid="uid://e0bft4deukl6" path="res://scripts/start_button.gd" id="3_mgrm8"]
+[ext_resource type="Script" uid="uid://b0i16x662illn" path="res://scripts/quit_button.gd" id="4_dc4i4"]
+[ext_resource type="Script" uid="uid://bpfx62c72olsa" path="res://scripts/settings_button.gd" id="4_e54dn"]
+[ext_resource type="Script" uid="uid://d0ifky1uqn5vt" path="res://scripts/options.gd" id="6_3yumr"]
+[ext_resource type="FontFile" uid="uid://bafcs17s3qa4x" path="res://assets/fonts/Redaction50-Regular.ttf" id="6_e54dn"]
+[ext_resource type="Script" uid="uid://bkxbyd4vtkljs" path="res://scripts/to_title.gd" id="8_cs5ya"]
+[ext_resource type="Script" uid="uid://eoj2bhhre1hp" path="res://scripts/audio_control.gd" id="10_tklts"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wjy3r"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_o8kdg"]
+color = Color(0.20862553, 0.43054137, 0.6640268, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 6
+
+[node name="TitleScreen" type="Control" unique_id=506987034]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1306425465]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sa3yf")
+
+[node name="Menu" type="VBoxContainer" parent="PanelContainer" unique_id=1478061193]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer/Menu" unique_id=458396622]
+layout_mode = 2
+theme_type_variation = &"RichTextLabelTitle"
+theme_override_colors/default_color = Color(0.37745136, 0.57445794, 0.37670958, 1)
+theme_override_font_sizes/normal_font_size = 110
+text = "UNDEAD BULLETS"
+fit_content = true
+autowrap_mode = 0
+
+[node name="StartButton" parent="PanelContainer/Menu" unique_id=166278050 instance=ExtResource("2_s4lrb")]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_mgrm8")
+
+[node name="OptionsButton" parent="PanelContainer/Menu" unique_id=1815028725 instance=ExtResource("2_s4lrb")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Options"
+script = ExtResource("4_e54dn")
+
+[node name="QuitButton" parent="PanelContainer/Menu" unique_id=1571059540 instance=ExtResource("2_s4lrb")]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit"
+script = ExtResource("4_dc4i4")
+
+[node name="Options" type="Panel" parent="." unique_id=355548311]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -342.0
+offset_top = -215.0
+offset_right = 347.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_3yumr")
+
+[node name="BackButton" parent="Options" unique_id=998100518 instance=ExtResource("2_s4lrb")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.5
+offset_top = -118.0
+offset_right = 150.5
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("1_sa3yf")
+text = "Back"
+script = ExtResource("8_cs5ya")
+
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=1254070453]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 104.0
+offset_right = 607.0
+offset_bottom = 129.0
+theme_override_styles/slider = SubResource("StyleBoxLine_wjy3r")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_o8kdg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_o8kdg")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("10_tklts")
+audio_bus_name = "Music"
+
+[node name="AudioControl2" type="HSlider" parent="Options" unique_id=533448197]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 198.0
+offset_right = 607.0
+offset_bottom = 223.0
+theme_override_styles/slider = SubResource("StyleBoxLine_wjy3r")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_o8kdg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_o8kdg")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("10_tklts")
+audio_bus_name = "Sound Effects"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Options" unique_id=1111757642]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("6_e54dn")
+theme_override_font_sizes/normal_font_size = 49
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options" unique_id=1291480567]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -29.5
+offset_right = 266.0
+offset_bottom = 48.5
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_e54dn")
+theme_override_font_sizes/normal_font_size = 49
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Options" unique_id=1580873382]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = -123.5
+offset_right = 256.0
+offset_bottom = -45.5
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_e54dn")
+theme_override_font_sizes/normal_font_size = 49
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/Menu/StartButton" to="PanelContainer/Menu/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/Menu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Menu/OptionsButton" to="PanelContainer/Menu/OptionsButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/Menu/QuitButton" to="PanelContainer/Menu/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="Options/BackButton" to="Options/BackButton" method="_on_pressed"]
+[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioControl2" to="Options/AudioControl2" method="_on_value_changed"]

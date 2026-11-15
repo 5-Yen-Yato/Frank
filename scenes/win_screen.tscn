@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cmuqtl808c2aq"]
+
+[ext_resource type="Script" uid="uid://mxq8nrpwednp" path="res://scenes/win_screen.gd" id="1_6s1kg"]
+[ext_resource type="FontFile" uid="uid://bafcs17s3qa4x" path="res://assets/fonts/Redaction50-Regular.ttf" id="1_e41g7"]
+[ext_resource type="PackedScene" uid="uid://crp5afbp8te1n" path="res://scenes/start_button.tscn" id="2_0lrm4"]
+[ext_resource type="Script" uid="uid://e0bft4deukl6" path="res://scripts/start_button.gd" id="3_6s1kg"]
+[ext_resource type="Script" uid="uid://bkxbyd4vtkljs" path="res://scripts/to_title.gd" id="4_bqn3h"]
+[ext_resource type="AudioStream" uid="uid://dvegfoc1a8tbc" path="res://assets/Sounds/432874__xtrgamr__lfs_yaycheer.wav" id="6_bqn3h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18rb4"]
+bg_color = Color(0.2, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcm7v"]
+bg_color = Color(0.33368665, 0.31774423, 0.29931408, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.2, 0.38431373, 0.101960786, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8kdg"]
+bg_color = Color(0.44060168, 0.10143068, 0.116119035, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.19836286, 0.38350913, 0.10320554, 1)
+
+[sub_resource type="Theme" id="Theme_wjy3r"]
+Button/styles/hover = SubResource("StyleBoxFlat_18rb4")
+Button/styles/normal = SubResource("StyleBoxFlat_gcm7v")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o8kdg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnnn4"]
+bg_color = Color(0.44530803, 0.6784866, 0.21577904, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.1619251, 0.27104127, 0.07139834, 1)
+
+[node name="WinScreen" type="Control" unique_id=351036994]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6s1kg")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=509011743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wjy3r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qnnn4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=696106689]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=883258816]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_e41g7")
+theme_override_font_sizes/normal_font_size = 100
+text = "You Won!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="StartButton" parent="PanelContainer/VBoxContainer" unique_id=166278050 instance=ExtResource("2_0lrm4")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_e41g7")
+theme_override_font_sizes/font_size = 28
+text = "Play Again"
+script = ExtResource("3_6s1kg")
+
+[node name="TitleButton" parent="PanelContainer/VBoxContainer" unique_id=1265256853 instance=ExtResource("2_0lrm4")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_e41g7")
+theme_override_font_sizes/font_size = 28
+text = "Back to Title Screen"
+script = ExtResource("4_bqn3h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1549184859]
+stream = ExtResource("6_bqn3h")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/StartButton" to="PanelContainer/VBoxContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/TitleButton" to="PanelContainer/VBoxContainer/TitleButton" method="_on_pressed"]

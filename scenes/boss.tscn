@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://th4ydmeu3blb"]
+
+[ext_resource type="Texture2D" uid="uid://dd0h6eipymo06" path="res://assets/Images/Boss.png" id="1_dlmty"]
+[ext_resource type="Script" uid="uid://d1vvo3yqqtnty" path="res://scripts/boss.gd" id="1_neq0i"]
+[ext_resource type="AudioStream" uid="uid://cpj2tqaysqncf" path="res://assets/Sounds/570858__rafaelzimrp__shadowboss_attack.wav" id="3_jncid"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjy3r"]
+radius = 43.046486
+
+[node name="Boss" type="StaticBody2D" unique_id=99085121]
+script = ExtResource("1_neq0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1712117144]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_dlmty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1462621975]
+shape = SubResource("CircleShape2D_wjy3r")
+
+[node name="BulletTimer" type="Timer" parent="." unique_id=605002443 groups=["bullet_timer"]]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=250845644]
+stream = ExtResource("3_jncid")
+bus = &"Sound Effects"
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://83n6gke2crnq"]
+
+[ext_resource type="Script" uid="uid://bjul7w018o2bt" path="res://scenes/outer_bullets.gd" id="1_nkf8r"]
+[ext_resource type="PackedScene" uid="uid://diyxycjswol66" path="res://scenes/bullet.tscn" id="1_v0pns"]
+
+[node name="OuterBullets" type="Node2D" unique_id=1114974296]
+script = ExtResource("1_nkf8r")
+
+[node name="Bullet" parent="." unique_id=964117385 instance=ExtResource("1_v0pns")]
+position = Vector2(0, -4)
+
+[node name="Bullet2" parent="." unique_id=447466588 instance=ExtResource("1_v0pns")]
+position = Vector2(60, 48)
+
+[node name="Bullet3" parent="." unique_id=1263879930 instance=ExtResource("1_v0pns")]
+position = Vector2(89, 21)
+
+[node name="Bullet4" parent="." unique_id=477190289 instance=ExtResource("1_v0pns")]
+position = Vector2(60, -4)
+
+[node name="Bullet5" parent="." unique_id=774655476 instance=ExtResource("1_v0pns")]
+position = Vector2(0, 47)
+
+[node name="Bullet6" parent="." unique_id=493849697 instance=ExtResource("1_v0pns")]
+position = Vector2(-32, 21)
