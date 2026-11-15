@@ -18,4 +18,5 @@ Credits:
 xtrgamr on Freesound,
 rafaelzimrp on Freesound,
 qubodup on Freesound,
-SyncLab Music on Free Music Archive
+SyncLab Music on Free Music Archive,
+Free 2D Top-Down pixel Dungeon Asset Pack on Craftpix
