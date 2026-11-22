@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 110.0
+const SPEED = 200.0
 var life: int = 3
 var up_sprite = preload("res://assets/Images/backwards.png")
 var right_sprite = preload("res://assets/Images/sideways.png")
