@@ -1,3 +1,2 @@
-res://scenes/player.tscn
+res://scenes/main.tscn
 res://assets/Colors/menu_theme.tres
-res://scripts/player.gd
